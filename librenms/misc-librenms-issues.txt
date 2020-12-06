@@ -1,0 +1,26 @@
+[[ Miscellaneous LibreNMS issues (and maybe fixes) ]]
+
+
+[Problem 1] Enabling Applications for discovered hosts generates "Problem with backend" error.
+[Fix] There is no reverse DNS in the environment, all servers are referred to by IP.
+Open the browser dev tools and click on the toggle button for the Application. If the message says "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at http://vlsv-nim1/ajax_form.php." then the issue is LibreNMS referring to its server by hostname and not IP.
+In LibreNMS, click the cog icon > Global Settings > System > Server > and modify the "LibreNMS hostname" and/or "Specific URL" to specify localhost and not the hostname.
+
+
+
+[Problem 2] During installation, LibreNMS complains about --no-dev option
+
+
+[Problem 3] Pi-hole snap extend script is not discovered by LibreNMS.
+[Fix] Check that the SNMPd user can execute the pi-hole script:
+
+	$ sudo -u Debian-snmp /etc/snmp/pi-hole
+
+Test SNMP has been configured correctly:
+	
+	$ snmpwalk -v2c -c {publicstring} localhost .1.3.6.1.4.1.8072.1.3.2.3.1
+
+If snmpwalk's output is "No more variables left in this MIB View (It is past the end of the MIB tree)", check that snmpd.conf does not contain "-V systemonly" parameter:
+
+	rocommunity {publicstring} default
+

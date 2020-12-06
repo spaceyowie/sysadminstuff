@@ -1,0 +1,8 @@
+[[ A a new UniFi AP Pro to UniFi Controller on different subnet ]]
+
+[1] Wire the UniFi AP Pro to the same subnet as the UniFi Controller - ensure there is a working DHCP server to give the correct IP.
+[2] Discover the UniFi AP Pro using the Chrome add-on, the iOS Discovery app, or SSH to the UniFi AP Pro and issue the <...> command.
+[3] Add the UniFi AP Pro to the UniFi Controller.
+[4] Wire the UniFi AP Pro to the desired subnet.
+[5] Check that the UniFi Controller can still control the UniFi AP Pro.
+[6] Done.

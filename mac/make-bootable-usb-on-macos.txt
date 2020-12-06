@@ -1,0 +1,21 @@
+[[ How to make a bootable USB on macOS ]]
+
+
+Machine: Macbook Pro (2018)
+OS: macOS Catalina 10.15.x, Big Sur 11.0.x
+
+Goal: To create a bootable USB drive from an OS ISO file.
+ISO: Windows Server 2016 Standard, ESX Hypervisor 6.7, FreeNAS 11.3
+
+
+Works:
+----------------
+[1] balenaEtcher : as a non-admin user, Etcher needs elevated permissions (user added to sudoers).
+[2] Rufus (Windows) : create a Windows VM in VMware Fusion or VBox, ensure the USB is set to MBR and not GPT.
+
+
+Didn't Work:
+----------------
+[1] diskutil (CLI) : convert .iso to .img.dmg, rename to .img, write with dd
+[2] DiskUtility (GUI)
+[3] Unetbootin

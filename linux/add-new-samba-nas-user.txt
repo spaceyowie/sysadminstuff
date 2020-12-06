@@ -1,0 +1,6 @@
+[[ Add a new Samba NAS user ]]
+
+[1] $ sudo adduser --system --no-create-home --group --disabled-login {username}
+[2] $ sudo smbpasswd -a {username}
+[3] $ sudo usermod -a -G nasusers {username}
+[4] Done.

@@ -1,0 +1,14 @@
+[[ Configure Dell Optiplex 9010 to boot ESXi from USB ]]
+
+
+Change BIOS:
+	- Secure Boot
+		* Secure Boot Enable = disabled
+	- General
+		- Advanced Boot Options
+			* Enable Legacy Option ROMs = enabled
+		- Boot Sequence
+			* Boot List Option = Legacy
+			- Boot Sequence
+				* USB Storage Device
+				* [disable all others]

@@ -1,0 +1,12 @@
+[[ How to update HP Microserver Gen8 iLO4 ]]
+
+
+[1] Download latest iLO4 firmware for Linux (*.scexe file): https://support.hpe.com/hpesc/public/km/product/5390291/Product#t=DriversandSoftware&sort=%40hpescuniversaldate%20descending&layout=table&numberOfResults=25&f:@kmswsoftwaretypekey=[swt8000029]
+[2] Extract .bin file from downloaded .scexe file:
+
+	$ chmod 755 CP*.scexe
+	$ ./CP*.scexe --unpack=./iLO4
+	$ ls -al /iLO4
+
+[3] Upload the .bin file through iLO web interface to start the firmware update.
+[4] Done.

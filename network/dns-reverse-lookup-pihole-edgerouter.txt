@@ -1,0 +1,22 @@
+[[ How to configure DNS reverse lookup with Pi-Hole and EdgeRouter PRO 8 ]]
+
+
+[1] In ER8, add a domain name to the router and each DHCP server, then enable hosts file updates by the DHCP server service:
+	
+	$ set system domain-name {domain.name}
+	$ set service dhcp-server shared-network-name {DHCP server name} subnet {DHCP subnet} domain-name {sub.domain.name}
+	$ set service dhcp-server hostfile-update enable
+
+NOTE: The DHCP server domain names may be subdomains of the domain name specified on the ER8.
+
+[2] In ER8, modify the firewall rules to allow DNS traffic from Pi-Hole to Local.	
+[3] In Pi-Hole, navigate to Settings > DNS > Advanced DNS Settings and configure:
+
+	- "Never forward non-FQDNs" = disabled
+	- "Never forward reverse lookups for private IP ranges" = disabled
+	- "Use Conditional Forwarding" = enabled
+		> "IP of your router" = ER8's IP
+		> "Local domain name" = {domain.name}
+
+[4] Save Pi-Hole settings and restart the DNS service.
+[5] Done.

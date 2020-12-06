@@ -1,0 +1,16 @@
+[[ Add user to Sudoers in Debian 10 ]]
+
+[1] As root, install sudo:
+	
+	# apt install sudo
+
+[2] Execute the command:
+	
+	# /sbin/adduser {username} sudo
+
+[3] Test sudo:
+	
+	# sudo -u {username} whoami
+
+[4] Log out of root.
+[5] Done.

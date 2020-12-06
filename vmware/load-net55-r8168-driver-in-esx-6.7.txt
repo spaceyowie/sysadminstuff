@@ -1,0 +1,20 @@
+[[ How to load net55-r8168 (RealTek NIC) driver in ESXi 6.7 ]]
+
+
+[1] Enable SSH and/or ESXi console on the host.
+[2] SSH to the host, or open the ESXi console when working locally by pressing Alt+F1.
+[3] Execute commands:
+
+	$ esxcli software acceptance set --level=CommunitySupported
+	$ esxcli network firewall ruleset set -e true -r httpClient
+	$ esxcli network firewall ruleset set -e true -r dns
+	$ esxcli software vib install -d https://vibsdepot.v-front.de -n net55-r8168
+
+[4] Check the driver is loaded:
+
+	$ esxcli software vib list | grep net55
+	net55-r8168        8.045a-napi        Realtek        CommunitySupported        2020-04-18
+
+[5] Disable firewall rulesets 'httpClient' and 'dns'.
+[6] Reboot.
+[7] Done.

@@ -1,0 +1,27 @@
+[[ How to fixe a borked sudoers file on macOS ]]
+
+
+Machine: Macbook Pro (2018)
+OS: macOS Big Sur 11.0.x
+
+During an OS upgrade, configuration files modified by the user are moved to a "Relocated Items" folder. These files need to be reviewed and manually merged back into the system. The 'sudoers' file is often in the "Relocated Items" folder because it's modified from default.
+After manually moving the file back to /etc/, the file's ownership was incorrect and, as a result, sudo would not work. Executing 'chown root:wheel /etc/sudoers' as an administrator user did not work.
+
+[1] Boot the MBP into Recovery Mode by holding Command+R on reboot.
+[2] When the "macOS Recovery" dialog appears, select the administrator user and enter their password.
+[3] Select "Disk Utility" on the next dialog.
+[4] In Disk Utility, mount the required disk/partition ("Macintosh HD - Data") and enter your user credentials.
+[5] In the "Utilities" menubar, click "Terminal".
+[6] Do a search for 'sudoers' file:
+	
+	# find / -name sudoers
+
+[7] Change directory to the location of the 'sudoers' file:
+
+	# cd /Volumes/Macintosh/private/etc
+
+[8] Change the ownership permissions of the 'sudoers' file:
+
+	# chown root:wheel sudoers
+
+[9] Reboot the MBP.

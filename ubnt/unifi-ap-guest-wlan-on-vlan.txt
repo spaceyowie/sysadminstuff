@@ -1,0 +1,7 @@
+[[ Configure a UniFi AP guest WLAN to use a VLAN from EdgeRouter PRO 8 and EdgeSwitch ]]
+
+[1] Configure the VLAN on the ER8.
+[2] Configure a DHCP server on the ER8 to serve the subnet of the VLAN.
+[3] In EdgeSwitch, add the VLAN and set the tagged port accordingly (ER8 -> ES). Then set the ES -> UAP port also as tagged - not untagged.
+[4] In UniFi Controller, create a guest wireless network and set the VLAN ID configured on the ER8.
+[5] Done.

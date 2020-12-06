@@ -1,0 +1,14 @@
+[[ How to update Pi-Hole ]]
+
+
+[1] SSH to the host.
+[2] Update the system:
+
+	$ sudo apt-get update
+	$ sudo apt-get upgrade
+
+[3] Update Pi-Hole:
+
+	$ pihole -up
+
+[4] Done.

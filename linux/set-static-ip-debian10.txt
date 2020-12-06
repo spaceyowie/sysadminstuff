@@ -1,0 +1,34 @@
+[[ Set a static IP in Debian 10 ]]
+
+[1] Edit /etc/network/interfaces:
+	
+	$ sudo vi /etc/network/interfaces
+	# This file describes the network interfaces available on your system
+	# and how to activate them. For more information, see interfaces(5).
+
+	source /etc/network/interfaces.d/*
+
+	# The loopback network interface
+	auto lo
+	iface lo inet loopback
+
+	# The primary network interface
+	allow-hotplug ens192
+	iface ens192 inet static
+		address {static IP}
+		network {subnet address}
+		netmask {netmask address}
+		broadcast {broadcast address}
+		gateway {default gateway}
+		dns-nameservers {dns server}
+
+[2] Restart networking:
+
+		$ sudo systemctl restart networking ifup@ens192
+
+[3] Check interface and test connection to the DNS server:
+
+		$ sudo ip address show
+		$ ping {dns server}
+
+[4] Done.
