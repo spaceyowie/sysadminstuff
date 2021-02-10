@@ -1,0 +1,47 @@
+[[ How to install Hashcat on Windows 10 ]]
+
+Running Hashcat on Windows 10 Pro using a Gitabyte RTX 3070.
+
+[1] Download and extract the latest Hashcat binaries: https://github.com/hashcat/hashcat/releases
+[2] Download and install NVIDIA CUDA Toolkit: https://developer.nvidia.com/cuda-toolkit 
+	
+	NOTE: GeForce Experience is not required to be installed.
+
+[3] Reboot.
+[4] Open cmd to hashcat.exe and confirm output:
+
+	C:\Program Files\hashcat-6.1.1>hashcat -I
+	hashcat (v6.1.1) starting...
+
+	CUDA Info:
+	==========
+
+	CUDA.Version.: 11.2
+
+	Backend Device ID #1 (Alias: #2)
+	  Name...........: GeForce RTX 3070
+	  Processor(s)...: 46
+	  Clock..........: 1815
+	  Memory.Total...: 8192 MB
+	  Memory.Free....: 7132 MB
+
+	OpenCL Info:
+	============
+
+	OpenCL Platform ID #1
+	  Vendor..: NVIDIA Corporation
+	  Name....: NVIDIA CUDA
+	  Version.: OpenCL 1.2 CUDA 11.2.66
+
+	  Backend Device ID #2 (Alias: #1)
+		Type...........: GPU
+		Vendor.ID......: 32
+		Vendor.........: NVIDIA Corporation
+		Name...........: GeForce RTX 3070
+		Version........: OpenCL 1.2 CUDA
+		Processor(s)...: 46
+		Clock..........: 1815
+		Memory.Total...: 8192 MB (limited to 2048 MB allocatable in one block)
+		Memory.Free....: 7104 MB
+		OpenCL.Version.: OpenCL C 1.2
+		Driver.Version.: 460.89
