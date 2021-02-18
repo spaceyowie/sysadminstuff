@@ -4,12 +4,46 @@
 [1] Windows 10 Decrapifier:
 	
 	https://community.spiceworks.com/scripts/show/4378-windows-10-decrapifier-18xx-19xx-2xxx
-	
-[2] Enable Hub Mode in File Explorer:
 
-	[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-	"HubMode"=dword:00000001
+
+[2] File Explorer improvements:
+
+	- Enable Hub Mode (hide Quick Access, Library folders, etc):
+
+		[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+		"HubMode"=dword:00000001
+		
+	- Show hidden files, folders, and drives:
 	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"Hidden"=dword:00000001
+	
+	- Hide empty drives:
+	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"HideDrivesWithNoMedia"=dword:00000000
+	
+	- Hide extensions for known file types:
+	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"HideFileExt"=dword:00000000
+	
+	- Hide folder merge conflicts:
+	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"HideMergeConflicts"=dword:00000000
+	
+	- Use sharing wizard:
+	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"SharingWizardOn"=dword:00000000
+	
+	- Expand to open folder:
+	
+		[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+		"NavPaneExpandToCurrentFolder"=dword:00000001
+
+
 [3] Don't automatically reboot after Windows Updates:
 	
 	Group Policy
